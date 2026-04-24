@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cultura — Militsa Yanakieva</title>
+    <meta
+      name="description"
+      content="CULTŪRA — conceptual editorial design on contemporary culture, nostalgia, and visual identity. Classical references, bold typography, and experimental layouts by Militsa Yanakieva."
+    />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./case-study.css" />
+  </head>
+  <body class="cultura-doc">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <div id="main" class="page page--inner">
+      <header class="inner-top site-nav nav--on-light">
+        <a class="inner-top__brand" href="./index.html">Militsa Yanakieva</a>
+        <nav class="masthead__nav" aria-label="Primary">
+          <a class="nav-link" href="./work.html" aria-current="page">
+            <span class="subnav__mask">
+              <span class="subnav__text">Work</span>
+            </span>
+          </a>
+          <a class="nav-link" href="./about.html">
+            <span class="subnav__mask">
+              <span class="subnav__text">About</span>
+            </span>
+          </a>
+          <a class="nav-link" href="./contact.html">
+            <span class="subnav__mask">
+              <span class="subnav__text">Contact</span>
+            </span>
+          </a>
+        </nav>
+      </header>
+
+      <main class="sheet sheet--project-case sheet--cultura" id="main-content" data-theme="light">
+        <header class="cultura-hero">
+          <h1 class="cultura-hero__title">CULTŪRA</h1>
+          <div class="cultura-hero__copy">
+            <p class="cultura-hero__lede">
+              CULTŪRA is a conceptual editorial design project exploring how contemporary culture is shaped, repeated,
+              and reinterpreted over time.
+            </p>
+            <p class="cultura-hero__lede">
+              Through bold typography, classical references, and experimental layouts, the project examines themes such
+              as nostalgia, trend cycles, and the way visual culture influences how we see ourselves today.
+            </p>
+            <p class="cultura-hero__lede">
+              The design approach combines historical imagery with a modern editorial language, using contrast, scale,
+              and material-inspired visuals to create a strong narrative identity.
+            </p>
+          </div>
+        </header>
+
+        <section class="cultura-showcase" aria-label="Cultura project imagery">
+          <div class="cultura-showcase__grid">
+            <!-- Row 1: full-width landscape -->
+            <figure class="cultura-tile cultura-tile--hero">
+              <img
+                src="./assets/cultura-hero.png"
+                alt="Cultūra magazine covers in a diagonal grid on a light textured surface, Nike of Samothrace on each cover"
+                width="1024"
+                height="585"
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+            <!-- Row 2: two-up -->
+            <div class="cultura-showcase__duo">
+              <figure class="cultura-tile cultura-tile--half cultura-tile--half--as">
+                <img
+                  src="./assets/cultura-row2-left.png"
+                  alt="Cultūra magazine spread — Authentic Selves, title and red flowers on yellow"
+                  width="1024"
+                  height="667"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="cultura-tile cultura-tile--half cultura-tile--half--three">
+                <img
+                  src="./assets/cultura-row2-right.png"
+                  alt="Cultūra magazine — three open spreads including Nostalgia in red and Authentic Selves"
+                  width="1024"
+                  height="682"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <a class="project-case__back" href="./work.html">Back to work</a>
+      </main>
+    </div>
+
+    <script src="./inner-nav-ticker.js"></script>
+    <script src="./main.js"></script>
+    <script src="./header-theme.js"></script>
+  </body>
+</html>

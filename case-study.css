@@ -1,0 +1,71 @@
+/* Shared chrome for project case pages (nav + masthead ticker) */
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.inner-top__brand {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.01em;
+}
+
+.masthead__nav a {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  display: inline-block;
+  line-height: 1;
+}
+
+.subnav__mask {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  vertical-align: top;
+}
+
+.subnav__text {
+  display: inline-block;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+.subnav__text--clone {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.subnav__text--exit {
+  animation: subNavExitUp 0.45s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+
+.subnav__text--enter {
+  animation: subNavEnterFromBottom 1.3s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes subNavExitUp {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -110%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes subNavEnterFromBottom {
+  0% {
+    transform: translate3d(0, 110%, 0);
+  }
+  85% {
+    transform: translate3d(0, -2%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work — Militsa Yanakieva</title>
+    <meta
+      name="description"
+      content="Selected work exploring identity, culture, and the visual language of contemporary life."
+    />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      .inner-top__brand {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: 0.01em;
+      }
+
+      .masthead__nav a {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 0.01em;
+        display: inline-block;
+        line-height: 1;
+      }
+
+      .sheet--work {
+        padding-top: 0;
+      }
+
+      .work-hero {
+        padding-top: clamp(3.25rem, 12vh, 7.5rem);
+        padding-bottom: clamp(0.75rem, 2vw, 1.25rem);
+        text-align: center;
+      }
+
+      .work-hero__title {
+        margin: 0;
+        font-family: "Anton", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        text-transform: uppercase;
+        font-size: clamp(2.6rem, 10.5vw, 9rem);
+        line-height: 0.92;
+        letter-spacing: 0.012em;
+        white-space: nowrap;
+        color: #111;
+      }
+
+      .work-hero__title-inner {
+        display: inline-flex;
+        align-items: baseline;
+        white-space: nowrap;
+      }
+
+      .work-hero .letter-mask {
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .work-hero .letter {
+        display: inline-block;
+        transform: translate3d(var(--start-x, 110%), var(--start-y, 0), 0);
+        backface-visibility: hidden;
+        -webkit-font-smoothing: antialiased;
+        will-change: transform, opacity;
+      }
+
+      .work-hero .letter-mask--space {
+        width: 0.28em;
+      }
+
+      .work-hero__title.is-title-animating .letter {
+        animation-name: var(--intro-animation, workEnterFromRight);
+        animation-duration: 1.4s;
+        animation-delay: var(--delay, 0s);
+        animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+        animation-fill-mode: forwards;
+      }
+
+      .work-hero__title.is-title-done .letter:not(.letter--clone) {
+        transform: translate3d(0, 0, 0);
+      }
+
+      .work-hero .letter.letter--exit {
+        animation: workExitLeft 0.55s cubic-bezier(0.3, 0.05, 0.35, 1) forwards;
+      }
+
+      .work-hero .letter.letter--clone {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .work-hero .letter.letter--enter {
+        animation: workEnterRight 1.45s cubic-bezier(0.62, 0.04, 0.2, 1) forwards;
+      }
+
+      @keyframes workEnterFromRight {
+        0% {
+          transform: translate3d(110%, 0, 0);
+        }
+        60% {
+          transform: translate3d(-2%, 0, 0);
+        }
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @keyframes workEnterFromTop {
+        0% {
+          transform: translate3d(0, -110%, 0);
+        }
+        60% {
+          transform: translate3d(0, 2%, 0);
+        }
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @keyframes workEnterFromBottom {
+        0% {
+          transform: translate3d(0, 110%, 0);
+        }
+        60% {
+          transform: translate3d(0, -2%, 0);
+        }
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @keyframes workExitLeft {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+        100% {
+          transform: translate3d(-110%, 0, 0);
+        }
+      }
+
+      @keyframes workEnterRight {
+        0% {
+          transform: translate3d(110%, 0, 0);
+        }
+        85% {
+          transform: translate3d(-2%, 0, 0);
+        }
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      .work-hero__rule {
+        margin-top: 0;
+        margin-bottom: clamp(1.5rem, 4vw, 2.75rem);
+      }
+
+      .work-gallery__lede {
+        margin-bottom: clamp(1.5rem, 3.5vw, 2.25rem);
+      }
+
+      .work-gallery {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(1rem, 2.5vw, 1.75rem);
+      }
+
+      .work-gallery__card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+        border-radius: 2px;
+        outline-offset: 4px;
+        transition: transform 0.35s cubic-bezier(0.33, 1, 0.55, 1),
+          box-shadow 0.35s cubic-bezier(0.33, 1, 0.55, 1);
+      }
+
+      .work-gallery__card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 32px rgba(17, 17, 17, 0.07);
+      }
+
+      .work-gallery__thumb img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .work-gallery__card:focus-visible {
+        outline: 2px solid #111;
+      }
+
+      .work-gallery__thumb {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        border: 1px solid #c8c4bc;
+        background-color: #e2dfd8;
+        background-image: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.35) 0%,
+            rgba(255, 255, 255, 0) 42%
+          ),
+          linear-gradient(125deg, #d8d4cc 12%, transparent 12.5%),
+          linear-gradient(125deg, transparent 87%, #cec9c0 87.5%);
+        background-size: 100% 100%, 18px 18px, 18px 18px;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+      }
+
+      .work-gallery__card:hover .work-gallery__thumb {
+        border-color: #a8a299;
+        background-color: #dcd8d0;
+      }
+
+      .work-gallery__body {
+        padding-top: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .work-gallery__name {
+        margin: 0;
+        font-size: 0.9375rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.25;
+        color: #111;
+      }
+
+      .work-gallery__type {
+        margin: 0;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #555;
+      }
+
+      @media (max-width: 720px) {
+        .work-gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 900px) {
+        .work-hero {
+          padding-top: clamp(2.5rem, 10vh, 5rem);
+        }
+
+        .work-hero__title {
+          font-size: clamp(2.15rem, 11.5vw, 6.9rem);
+          white-space: normal;
+        }
+
+        .work-hero__title-inner {
+          white-space: normal;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .work-gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .work-gallery__thumb--symphonic {
+        background: #2a2a2a url("./assets/symphonic-whispers-hero.png") center / cover no-repeat;
+      }
+
+      .work-gallery__thumb--roelab {
+        background: #e8e8e8 url("./assets/roelab-work-thumb.png") center / cover no-repeat;
+      }
+
+      .work-gallery__thumb--arumi {
+        background: #d4ddd6 url("./assets/arumi-work-thumb.png") center / cover no-repeat;
+      }
+
+      .work-gallery__thumb--ironman-hud {
+        background: #000000 url("./assets/ironman-hud-work-thumb.png") center / cover no-repeat;
+      }
+
+      .subnav__mask {
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        vertical-align: top;
+      }
+
+      .subnav__text {
+        display: inline-block;
+        transform: translate3d(0, 0, 0);
+        will-change: transform, opacity;
+      }
+
+      .subnav__text--clone {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .subnav__text--exit {
+        animation: subNavExitUp 0.45s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+      }
+
+      .subnav__text--enter {
+        animation: subNavEnterFromBottom 1.3s cubic-bezier(0.76, 0, 0.24, 1)
+          forwards;
+      }
+
+      @keyframes subNavExitUp {
+        0% {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate3d(0, -110%, 0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes subNavEnterFromBottom {
+        0% {
+          transform: translate3d(0, 110%, 0);
+        }
+        85% {
+          transform: translate3d(0, -2%, 0);
+        }
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <div id="main" class="page page--inner">
+      <header class="inner-top site-nav nav--on-light">
+        <a class="inner-top__brand" href="./index.html">Militsa Yanakieva</a>
+        <nav class="masthead__nav" aria-label="Primary">
+          <a class="nav-link" href="./work.html" aria-current="page">
+            <span class="subnav__mask">
+              <span class="subnav__text">Work</span>
+            </span>
+          </a>
+          <a class="nav-link" href="./about.html">
+            <span class="subnav__mask">
+              <span class="subnav__text">About</span>
+            </span>
+          </a>
+          <a class="nav-link" href="./contact.html">
+            <span class="subnav__mask">
+              <span class="subnav__text">Contact</span>
+            </span>
+          </a>
+        </nav>
+      </header>
+
+      <main class="sheet sheet--work" id="main-content" data-theme="light">
+        <div class="work-hero">
+          <h1 id="work-hero-title" class="work-hero__title" aria-label="Projects"></h1>
+        </div>
+        <hr class="sheet__rule work-hero__rule" />
+
+        <p class="sheet__lede work-gallery__lede">
+          Selected work exploring identity, culture, and the visual language of contemporary life.
+        </p>
+
+        <ul class="work-gallery" aria-label="Project gallery">
+          <li>
+            <a class="work-gallery__card" href="./cultura.html">
+              <div class="work-gallery__thumb">
+                <img
+                  src="./assets/work-cultura.png"
+                  alt="Cultura — dried yellow roses on a red grainy background, cutout style"
+                  width="1024"
+                  height="862"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="work-gallery__body">
+                <h2 class="work-gallery__name">Cultura</h2>
+                <p class="work-gallery__type">Editorial</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="work-gallery__card" href="./symphonic-whispers.html">
+              <div class="work-gallery__thumb work-gallery__thumb--symphonic"></div>
+              <div class="work-gallery__body">
+                <h2 class="work-gallery__name">Symphonic Whispers</h2>
+                <p class="work-gallery__type">Branding, music festival</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="work-gallery__card" href="./roelab.html">
+              <div class="work-gallery__thumb work-gallery__thumb--roelab"></div>
+              <div class="work-gallery__body">
+                <h2 class="work-gallery__name">RoeLab</h2>
+                <p class="work-gallery__type">Service design, UX/UI</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="work-gallery__card" href="./arumi.html">
+              <div class="work-gallery__thumb work-gallery__thumb--arumi"></div>
+              <div class="work-gallery__body">
+                <h2 class="work-gallery__name">Arumi</h2>
+                <p class="work-gallery__type">Rebranding</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="work-gallery__card" href="./ironman-hud.html">
+              <div class="work-gallery__thumb work-gallery__thumb--ironman-hud"></div>
+              <div class="work-gallery__body">
+                <h2 class="work-gallery__name">Ironman HUD</h2>
+                <p class="work-gallery__type">Motion design, HUD elements</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </main>
+    </div>
+
+    <script>
+      (function () {
+        const masks = document.querySelectorAll(".masthead__nav .subnav__mask");
+
+        masks.forEach((mask) => {
+          if (mask.dataset.tickerBound === "true") return;
+          mask.dataset.tickerBound = "true";
+
+          mask.addEventListener("mouseenter", () => {
+            if (mask.dataset.animating === "true") return;
+
+            const originalText = mask.querySelector(".subnav__text:not(.subnav__text--clone)");
+            if (!originalText) return;
+
+            mask.dataset.animating = "true";
+            originalText.classList.remove("subnav__text--exit");
+            originalText.style.opacity = "1";
+            originalText.style.transform = "translate3d(0, 0, 0)";
+            originalText.offsetWidth;
+            originalText.classList.add("subnav__text--exit");
+
+            const clone = originalText.cloneNode(true);
+            clone.classList.remove("subnav__text--exit");
+            clone.classList.add("subnav__text--clone", "subnav__text--enter");
+            mask.appendChild(clone);
+
+            originalText.addEventListener(
+              "animationend",
+              () => {
+                originalText.classList.remove("subnav__text--exit");
+                originalText.style.opacity = "0";
+                originalText.style.transform = "translate3d(0, 0, 0)";
+              },
+              { once: true }
+            );
+
+            clone.addEventListener(
+              "animationend",
+              () => {
+                clone.remove();
+                originalText.style.opacity = "1";
+                originalText.style.transform = "translate3d(0, 0, 0)";
+                mask.dataset.animating = "false";
+              },
+              { once: true }
+            );
+          });
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        const workTitleEl = document.getElementById("work-hero-title");
+        const workTitleText = "PROJECTS";
+
+        function animateWorkTitleLetters() {
+          if (!workTitleEl) return;
+
+          workTitleEl.classList.remove("is-title-animating", "is-title-done");
+
+          const introDirections = [
+            { name: "workEnterFromRight", startX: "110%", startY: "0%" },
+            { name: "workEnterFromTop", startX: "0%", startY: "-110%" },
+            { name: "workEnterFromBottom", startX: "0%", startY: "110%" }
+          ];
+          let letterIndex = 0;
+          const chars = workTitleText.split("");
+
+          const titleMarkup = chars
+            .map((char) => {
+              if (char === " ") {
+                return '<span class="letter-mask letter-mask--space" aria-hidden="true"></span>';
+              }
+              const direction =
+                introDirections[Math.floor(Math.random() * introDirections.length)];
+              const delay = letterIndex * 0.16;
+              letterIndex += 1;
+              return `<span class="letter-mask"><span class="letter" style="--delay:${delay.toFixed(
+                3
+              )}s;--intro-animation:${direction.name};--start-x:${direction.startX};--start-y:${direction.startY};">${char}</span></span>`;
+            })
+            .join("");
+
+          workTitleEl.innerHTML = `<span class="work-hero__title-inner" aria-label="Projects">${titleMarkup}</span>`;
+          workTitleEl.offsetWidth;
+          workTitleEl.classList.add("is-title-animating");
+
+          const introDurationMs = 1400 + Math.max(0, letterIndex - 1) * 160;
+          setTimeout(() => {
+            workTitleEl.classList.remove("is-title-animating");
+            workTitleEl.classList.add("is-title-done");
+            setupWorkTitleHoverTicker();
+          }, introDurationMs + 20);
+        }
+
+        function setupWorkTitleHoverTicker() {
+          if (!workTitleEl) return;
+          const masks = workTitleEl.querySelectorAll(".letter-mask");
+
+          masks.forEach((mask) => {
+            if (mask.classList.contains("letter-mask--space") || mask.dataset.tickerBound === "true") {
+              return;
+            }
+            mask.dataset.tickerBound = "true";
+            mask.addEventListener("mouseenter", () => {
+              if (mask.dataset.animating === "true") return;
+
+              const originalLetter = mask.querySelector(".letter:not(.letter--clone)");
+              if (!originalLetter) return;
+
+              mask.dataset.animating = "true";
+              originalLetter.classList.remove("letter--exit");
+              originalLetter.style.transform = "translate3d(0, 0, 0)";
+              originalLetter.offsetWidth;
+              originalLetter.classList.add("letter--exit");
+
+              const clone = originalLetter.cloneNode(true);
+              clone.classList.remove("letter--exit");
+              clone.classList.add("letter--clone", "letter--enter");
+              mask.appendChild(clone);
+
+              originalLetter.addEventListener(
+                "animationend",
+                () => {
+                  originalLetter.classList.remove("letter--exit");
+                  originalLetter.style.transform = "translate3d(-110%, 0, 0)";
+                },
+                { once: true }
+              );
+
+              clone.addEventListener(
+                "animationend",
+                () => {
+                  clone.remove();
+                  originalLetter.style.transform = "translate3d(0, 0, 0)";
+                  mask.dataset.animating = "false";
+                },
+                { once: true }
+              );
+            });
+          });
+        }
+
+        function runWorkIntro() {
+          setTimeout(animateWorkTitleLetters, 140);
+        }
+
+        if (document.readyState === "complete") {
+          runWorkIntro();
+        } else {
+          window.addEventListener("load", runWorkIntro);
+        }
+      })();
+    </script>
+    <script src="./main.js"></script>
+    <script src="./header-theme.js"></script>
+  </body>
+</html>
